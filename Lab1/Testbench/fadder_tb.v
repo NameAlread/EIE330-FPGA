@@ -11,7 +11,7 @@ module fadder_tb;
     wire led0; // 和输出（sum）
     wire led1; // 进位输出（carry-out）
 
-    // 实例化全加器模块
+
     fadder uut (
         .btn1(btn1), 
         .btn2(btn2), 
@@ -20,9 +20,9 @@ module fadder_tb;
         .led1(led1)
     );
 
-    // 初始化测试
+    
     initial begin
-        // 初始化输入
+        
         btn1 = 0; btn2 = 0; btn3 = 0;
         
         // 等待100纳秒
@@ -61,11 +61,11 @@ module fadder_tb;
         btn1 = 1; btn2 = 1; btn3 = 1;
         #100;
         
-        // 测试结束
+        
         $finish;
     end
     
-    // 添加一个始终来监控输出
+    
     always begin
         #10; // 每10纳秒打印一次
         $display("Time = %t, btn1 = %b, btn2 = %b, btn3 = %b, led0 = %b, led1 = %b", 
