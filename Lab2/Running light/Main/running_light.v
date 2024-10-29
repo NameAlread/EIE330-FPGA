@@ -1,16 +1,16 @@
-module runlight (
-    input clk,           // 50MHz系统时钟
-    input rst_n,         // 复位信号，低电平有效
-    output reg [3:0] led // LED输出信号
-);
+module runlight 
+    (
+    input clk,           
+    input rst_n,         
+    output reg [3:0] led 
+    );
 
     reg [24:0] counter;  // 计数器，用于生成0.5秒延时
     reg [1:0] state;     // 当前状态寄存器
 
-    // 定义0.5秒的延时计数值：50M * 0.5 - 1 = 24,999,999
+    50M * 0.5 - 1 = 24,999,999
     localparam DELAY = 25_000_000;
 
-    // 时钟和状态转换逻辑
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin  // 复位时
             counter <= 0;
