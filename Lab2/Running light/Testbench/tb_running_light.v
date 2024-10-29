@@ -2,13 +2,14 @@
 
 module tb_running_light;
 
-    // 定义测试信号
-    reg clk;            // 时钟信号
-    reg rst_n;          // 复位信号
-    wire [3:0] led;     // LED输出
+   
+    reg clk;          
+    reg rst_n;          
+    wire [3:0] led;     
 
-    // 实例化被测试模块
-    runlight uut (
+
+    runlight uut 
+    (
         .clk(clk),
         .rst_n(rst_n),
         .led(led)
@@ -17,9 +18,8 @@ module tb_running_light;
     // 时钟生成：50MHz -> 周期20ns
     always #10 clk = ~clk;
 
-    // 初始化与仿真逻辑
+
     initial begin
-        // 初始化信号
         clk = 0;
         rst_n = 0;  // 保持复位状态
         #100 rst_n = 1;  // 100ns后释放复位
