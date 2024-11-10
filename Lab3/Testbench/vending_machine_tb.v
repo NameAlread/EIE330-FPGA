@@ -1,15 +1,12 @@
 module vending_machine_tb;
 
-// Inputs
 reg clk;
 reg reset;
 reg coin_05;
 reg coin_1;
 
-// Outputs
 wire bottle_out;
 
-// 实例化被测试模块
 vending_machine uut (
     .clk(clk), 
     .reset(reset), 
@@ -18,19 +15,16 @@ vending_machine uut (
     .bottle_out(bottle_out)
 );
 
-// 产生时钟信号
 initial begin
     clk = 0;
-    forever #10 clk = ~clk; // 产生50MHz的时钟信号
+    forever #10 clk = ~clk; 
 end
 
-// 初始化输入并复位
 initial begin
     reset = 1;
     coin_05 = 0;
     coin_1 = 0;
-    
-    // 复位系统
+
     #100;
     reset = 0;
     
