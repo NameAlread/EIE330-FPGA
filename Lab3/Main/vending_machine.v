@@ -1,15 +1,15 @@
 module vending_machine(
-    input clk,             // 时钟信号
-    input reset,           // 复位信号
+    input clk,             
+    input reset,          
     input coin_05,         // 0.5元硬币投入信号
     input coin_1,          // 1元硬币投入信号
     output reg bottle_out  // 饮料出货信号
 );
 
-// 定义状态
+
 localparam IDLE = 0, INSERT_COIN = 1, CHECK_BALANCE = 2, DISPENSE = 3;
 
-// 定义内部变量
+
 reg [1:0] state = IDLE;
 reg [1:0] balance = 0; // 余额，最大为2元
 
